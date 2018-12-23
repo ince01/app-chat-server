@@ -3,7 +3,7 @@ var server = require('http').Server(app);
 var io = require('socket.io')(server);
 var PORT = process.env.PORT || 3000;
 
-server.listen(3000, function () {
+server.listen(PORT, function () {
     console.log(`Server running on port ${PORT} ......`)
 });
 app.get('/', function (req, res) {
