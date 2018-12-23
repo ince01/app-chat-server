@@ -1,16 +1,16 @@
 var app = require('express')();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
+var PORT = process.env.PORT || 3000;
 
 server.listen(3000, function () {
-    console.log('server running on port 3000 ......')
+    console.log(`Server running on port ${PORT} ......`)
 });
-// WARNING: app.listen(80) will NOT work here!
 
 io.on('connection', function (socket) {
-    console.log('a user connected');
+    console.log(`a user connected with id: ${socket.id}`);
     socket.on('disconnect', function (socket) {
-        console.log('a user disconnected');
+        console.log(`a user disconnected with id: ${socket.id}`);
     });
     socket.on('chat message', function (msg) {
         io.emit('chat message', msg);
