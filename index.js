@@ -6,7 +6,9 @@ var PORT = process.env.PORT || 3000;
 server.listen(3000, function () {
     console.log(`Server running on port ${PORT} ......`)
 });
-
+app.get('/', function (req,res) {
+    res.json({'hello !'});
+})
 io.on('connection', function (socket) {
     console.log(`a user connected with id: ${socket.id}`);
     socket.on('disconnect', function (socket) {
