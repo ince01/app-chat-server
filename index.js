@@ -6,17 +6,16 @@ var PORT = process.env.PORT || 3000;
 server.listen(3000, function () {
     console.log(`Server running on port ${PORT} ......`)
 });
-app.get('/', function (req,res) {
-    res.json({'hello !'});
+app.get('/', function (req, res) {
+    res.json('hello !');
 })
 io.on('connection', function (socket) {
     console.log(`a user connected with id: ${socket.id}`);
-    socket.on('disconnect', function (socket) {
+    socket.on('disconnect', function () {
         console.log(`a user disconnected with id: ${socket.id}`);
     });
     socket.on('chat message', function (msg) {
         io.emit('chat message', msg);
         console.log('message: ' + msg);
     });
-    //socket.emit('chat message', "Chat now ...");
 });
