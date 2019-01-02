@@ -4,12 +4,15 @@
   "description": "Server app Chat using Socket.io for .NET client!\u001b[D ",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
   "author": "toanln",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "mongoose": "^5.4.1",
+    "nodemon": "^1.18.9",
     "socket.io": "^2.2.0"
   }
 }
