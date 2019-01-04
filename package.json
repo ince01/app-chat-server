@@ -4,7 +4,7 @@
   "description": "Server app Chat using Socket.io for .NET client!",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js"
   },
   "author": "toanln",
   "license": "ISC",
