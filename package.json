@@ -2,9 +2,8 @@
   "name": "server-appchat",
   "version": "1.0.0",
   "description": "Server app Chat using Socket.io for .NET client!\u001b[D ",
-  "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon server.js"
   },
   "author": "toanln",
   "license": "ISC",
