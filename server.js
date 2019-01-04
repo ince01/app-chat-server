@@ -44,14 +44,11 @@ app.get('/', function (req, res) {
 
 app.post('/user', function (req, res) {
     const user = new User(req.body);
-    user.save()
-        .then(function (result) {
-            res.status(200).json(result);
-        })
-        .catch(function (err) {
-            res.status(400).send('unable to save the course into database');
-            console.log(err);
-        })
+    user.save(function (err) {
+        if (err) return handleError(err);
+    })
+
+
 })
 
 io.on('connection', function (socket) {
@@ -62,7 +59,9 @@ io.on('connection', function (socket) {
     socket.on('chat message', function (msg) {
         io.emit('chat message', msg);
         console.log('message: ' + msg);
-        const message = new Message({"message":msg});
+        const message = new Message({
+            "message": msg
+        });
         message.save()
             .try(function (result) {
                 console.log(result)
