@@ -44,11 +44,6 @@ app.get('/', function (req, res) {
 
 app.post('/user', function (req, res) {
     const user = new User(req.body);
-    user.save(function (err) {
-        if (err) return handleError(err);
-    })
-
-
 })
 
 io.on('connection', function (socket) {
@@ -62,13 +57,6 @@ io.on('connection', function (socket) {
         const message = new Message({
             "message": msg
         });
-        message.save()
-            .try(function (result) {
-                console.log(result)
-            })
-            .catch(function (err) {
-                console.log(err);
-            })
     });
 })
 
