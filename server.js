@@ -47,7 +47,7 @@ app.post('/user', function (req, res) {
 })
 
 io.on('connection', function (socket) {
-    console.log(socket);
+    console.log(`SOCKET: ${socket}`);
     console.log(`a user connected with id: ${socket.id}`);
     socket.on('disconnect', function () {
         console.log(`a user disconnected with id: ${socket.id}`);
